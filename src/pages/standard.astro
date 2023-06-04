@@ -1,11 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-import CanvasSize from "../layouts/standard/_canvas_size.astro";
-import MastheadAspectRatio from "../layouts/standard/_masthead_aspect_ratio.astro";
+import CanvasSize from "../standard/_canvas_size.astro";
+import MastheadAspectRatio from "../standard/_masthead_aspect_ratio.astro";
 ---
 
-<Layout main_classList={[]}>
+<Layout>
   <!-- <section class="masthead__container masthead__center masthead__dark">
     <div
       style="background-image:url(https://images.pexels.com/photos/11785073/pexels-photo-11785073.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);"
@@ -132,11 +132,9 @@ import MastheadAspectRatio from "../layouts/standard/_masthead_aspect_ratio.astr
     <div class="text-center">
       <h4>Image Background</h4>
     </div>
-  </section> --> 
+  </section> -->
 
-  
   <CanvasSize />
 
   <MastheadAspectRatio />
-
 </Layout>

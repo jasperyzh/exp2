@@ -1,0 +1,64 @@
+---
+export interface Props {
+    title?: string;
+    description?: string;
+}
+
+const year = new Date().getFullYear();
+
+const { title, description } = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Global Metadata -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+
+        <!-- Canonical URL -->
+        <!-- <link rel="canonical" href={canonicalURL} /> -->
+
+        <!-- Primary Meta Tags -->
+        <title>{title}</title>
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
+    </head>
+
+    <body>
+        <header id="site-header" aria-label="site-header">
+            <h2>exp</h2>
+            <a href="/">exp</a>
+            <a href="/standard">standard</a>
+
+            <!-- <nav id="primary-nav" aria-label="primary-nav">
+                <Link href="/">Home</Link>
+                <Link href="/blog">Blog</Link>
+                <Link href="/portfolio">Portfolio</Link>
+            </nav> -->
+        </header>
+
+        <main id="site-main" aria-label="site-main">
+            <slot />
+        </main>
+        <footer
+            id="site-footer"
+            aria-label="site-footer"
+            class="tw-flex tw-flex-col tw-items-center tw-text-center tw-py-4"
+        >
+            <p class="small muted">
+                Coding with intent, in stillness and mindfulness, learning to
+                create.
+            </p>
+
+            <p class="small muted">
+                &copy; jy_exp {year}
+            </p>
+        </footer>
+        <style>
+            /* default */
+        </style>
+    </body>
+</html>

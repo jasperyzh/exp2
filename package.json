@@ -1,7 +1,7 @@
 {
-  "name": "@example/blog",
+  "name": "jyexp",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -11,9 +11,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.19.5",
-    "@astrojs/rss": "^2.4.3",
-    "@astrojs/sitemap": "^1.3.2",
-    "astro": "^2.5.6"
+    "astro": "^2.5.6",
+    "sass": "^1.62.1"
   }
 }
