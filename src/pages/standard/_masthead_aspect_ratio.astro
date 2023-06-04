@@ -1,0 +1,59 @@
+<section class="tw-relative tw-aspect-video">
+    <picture class="tw-w-full">
+        <img
+            class="tw-w-full"
+            src="https://images.pexels.com/photos/11785073/pexels-photo-11785073.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);"
+            alt=""
+        />
+    </picture>
+    <div
+        class="tw-border-pink-400 tw-border-dotted tw-aspect-square tw-absolute tw-z-30 tw-inset-0 tw-h-full tw-m-auto"
+    >
+    </div>
+    <div
+        class="tw-border-lime-400 tw-border-dotted tw-aspect-[4/3] tw-absolute tw-z-30 tw-inset-0 tw-h-full tw-m-auto"
+    >
+    </div>
+    <div
+        class="tw-border-red-400 tw-border-dotted tw-aspect-[2/1] tw-absolute tw-z-30 tw-inset-0 tw-w-full tw-m-auto"
+    >
+    </div>
+    <div
+        class="tw-border-blue-400 tw-border-dotted tw-aspect-[3/1] tw-absolute tw-z-30 tw-inset-0 tw-w-full tw-m-auto"
+    >
+    </div>
+</section>
+
+<style>
+    .masthead__landscape {
+        @apply tw-max-w-full tw-aspect-[16/9] lg:tw-aspect-[2/1] 2xl:tw-aspect-[3/1] tw-inline-flex tw-w-full tw-flex-col tw-items-center tw-justify-center tw-relative;
+    }
+    .masthead__container {
+        width: 100%;
+        position: relative;
+
+        aspect-ratio: 16/9;
+    }
+
+    .masthead__center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .masthead__dark {
+        color: #fff;
+    }
+
+    .masthead__bg {
+        position: absolute;
+        width: 100%;
+        min-height: 100%;
+        top: 0;
+        left: 0;
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+        overflow: hidden;
+    }
+</style>

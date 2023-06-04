@@ -1,0 +1,46 @@
+<section id="my_canvas_size" class="tw-w-full tw-mx-auto">
+    <h2>Canvas Sizes</h2>
+    <div
+        class="tw-container tw-flex tw-flex-wrap tw-justify-around tw-items-center"
+    >
+        <div class="canvas_size--40_60">
+            <span class="">40:60</span>
+        </div>
+
+        <div class="canvas_size--1_1">
+            <span class="">1:1</span>
+        </div>
+        <div class="canvas_size--4_3">
+            <span class="">4:3</span>
+        </div>
+
+        <div class="canvas_size--16_9">
+            <span class="">16:9</span>
+        </div>
+    </div>
+    <div class="canvas_size--masthead">
+        <span class="lg:tw-text-xl">16:9</span>
+        <span class="tw-text-xl lg:tw-text-6xl 2xl:tw-text-xl">2:1</span>
+        <span class="tw-text-xl 2xl:tw-text-6xl">3:1</span>
+    </div>
+</section>
+<style>
+    .canvas_size--1_1 {
+        @apply tw-max-w-md tw-bg-green-500 tw-aspect-[1/1] tw-inline-flex tw-w-full tw-items-center tw-justify-center;
+    }
+    .canvas_size--4_3 {
+        @apply tw-max-w-md tw-bg-purple-500 tw-aspect-[4/3] tw-inline-flex tw-w-full tw-items-center tw-justify-center;
+    }
+    .canvas_size--16_9 {
+        @apply tw-max-w-md tw-bg-blue-500 tw-aspect-[16/9] tw-inline-flex tw-w-full tw-items-center tw-justify-center;
+    }
+    .canvas_size--40_60 {
+        @apply tw-max-w-md tw-bg-red-500 tw-aspect-[40/60] tw-inline-flex tw-w-full tw-items-center tw-justify-center;
+    }
+    .canvas_size--masthead {
+        @apply tw-max-w-full tw-bg-yellow-500 tw-aspect-[16/9] lg:tw-aspect-[2/1] 2xl:tw-aspect-[3/1] tw-inline-flex tw-w-full tw-flex-col tw-items-center tw-justify-center;
+    }
+    span {
+        @apply tw-text-white tw-font-bold tw-text-6xl;
+    }
+</style>
