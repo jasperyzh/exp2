@@ -1,0 +1,128 @@
+<section id="animate-from-display-none">
+    <h1>Animating a &ltdialog&gt element</h1>
+    <p>Animate from Display: None</p>
+    <a href="https://codepen.io/kevinpowell/pen/QWaBeGm"
+        >animating dialog and ::backdrop - codepen</a
+    >
+    <ol>
+        <li>Insert stuff</li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ol>
+    <button class="button open-button">open modal</button>
+
+    <!-- attribute open/closing will be added via js -->
+    <dialog class="modal" id="modal">
+        <h2>An interesting title</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum esse
+            nisi, laboriosam illum temporibus ipsam?
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quo.
+        </p>
+        <button class="button close-button">close modal</button>
+    </dialog>
+</section>
+
+<img src="/art/230404-perlin_noice.gif" />
+
+<script is:inline>
+const modal = document.querySelector("#modal");
+const openModal = document.querySelector(".open-button");
+const closeModal = document.querySelector(".close-button");
+
+openModal.addEventListener("click", () => {
+    modal.showModal();
+});
+
+closeModal.addEventListener("click", () => {
+    modal.setAttribute("closing", "");
+
+    modal.addEventListener(
+        "animationend",
+        () => {
+            modal.removeAttribute("closing");
+            modal.close();
+        },
+        { once: true }
+    );
+});
+</script>
+
+<style lang="scss" is:global>
+    #animate-from-display-none {
+        .modal {
+            box-shadow: var(--shadow-2), 0 0 0 100vw rgb(0 0 0 / 0.5);
+            background: #fff;
+            color: #222;
+            border: 0;
+            border-radius: 0.25rem;
+        }
+
+        .modal::backdrop {
+            background: rgb(0 0 0 / 0.5);
+            opacity: 0;
+        }
+
+        .modal[open] {
+            animation: slide-up 1000ms forwards, fade-in 500ms forwards;
+        }
+        // .modal[open]::backdrop {
+        //   animation: fade-in 500ms forwards;
+        // }
+
+        .modal[closing] {
+            display: block;
+            pointer-events: none;
+            inset: 0;
+            animation: fade-out 500ms forwards;
+        }
+
+        // .modal[closing]::backdrop {
+        //   animation: fade-out 500ms forwards;
+        // }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade-out {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes slide-up {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(0%);
+            }
+        }
+
+        /* extra styling */
+        .modal {
+            max-width: 50ch;
+
+            & > * {
+                margin: 0 0 0.5rem 0;
+            }
+        }
+        button.button {
+            padding: 1rem;
+            background-color: blueviolet;
+            color: #fff;
+        }
+    }
+</style>

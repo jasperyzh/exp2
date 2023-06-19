@@ -1,18 +1,18 @@
 ---
 import { getCollection, CollectionEntry } from "astro:content";
 
-import Layout from "../layouts/Layout.astro";
-import Card from "../layouts/Card.astro";
-import { formatBlogPosts } from "../layouts/_Utils";
+// import Layout from "../layouts/Layout.astro";
+// import Card from "../layouts/Card.astro";
+// import { formatBlogPosts } from "../layouts/_Utils";
 
 // blog
-const allPosts = await getCollection("blog");
-const formattedPosts: CollectionEntry<"blog">[] = formatBlogPosts(allPosts, {
-  limit: 4,
-});
+// const allPosts = await getCollection("blog");
+// const formattedPosts: CollectionEntry<"blog">[] = formatBlogPosts(allPosts, {
+//   limit: 4,
+// });
 
 // api
-import get_channels from "../../public/data/230531-youtube_subscribed_data.json";
+// import get_channels from "../../public/data/230531-youtube_subscribed_data.json";
 ---
 
 <Layout>
@@ -28,7 +28,7 @@ import get_channels from "../../public/data/230531-youtube_subscribed_data.json"
   </section>
 
   <section class="grid grid-cols-8 gap-3 mx-auto px-4">
-    {
+    <!-- {
       get_channels &&
         get_channels.map((item) => (
           <>
@@ -47,7 +47,7 @@ import get_channels from "../../public/data/230531-youtube_subscribed_data.json"
             </article>
           </>
         ))
-    }
+    } -->
     <style>
       .yt-desc {
         display: -webkit-box;

@@ -1,0 +1,56 @@
+<section id="art_canvas_layout">
+    <div class="canvas">
+        <div class="box bg-slate-500"></div>
+        <pre>hello world
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit magni minima itaque, nulla sequi doloremque nemo accusantium ipsa, aliquam ad, officia dolores? Labore facere est doloremque! Iure, omnis! Voluptate, nam?
+      </pre>
+    </div>
+    <div class="canvas">
+        <div class="box bg-slate-500"></div>
+        <pre>hello world
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit magni minima itaque, nulla sequi doloremque nemo accusantium ipsa, aliquam ad, officia dolores? Labore facere est doloremque! Iure, omnis! Voluptate, nam?
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit magni minima itaque, nulla sequi doloremque nemo accusantium ipsa, aliquam ad, officia dolores? Labore facere est doloremque! Iure, omnis! Voluptate, nam?
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit magni minima itaque, nulla sequi doloremque nemo accusantium ipsa, aliquam ad, officia dolores? Labore facere est doloremque! Iure, omnis! Voluptate, nam?
+      </pre>
+    </div>
+</section>
+<style is:global>
+    #art_canvas_layout {
+        /* min-height: 100vh; */
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .canvas {
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 4/3;
+        @apply bg-slate-100 border border-solid border-gray-200;
+    }
+    .box {
+        position: relative;
+        aspect-ratio: 1/1;
+        width: calc(100% * 0.618);
+        max-width: 512px;
+    }
+    @media screen and (min-width: 1026px) {
+        #art_canvas_layout {
+            flex-wrap: nowrap;
+        }
+        .canvas {
+            aspect-ratio: 1/1;
+        }
+        .canvas pre {
+            position: absolute;
+            bottom: 0;
+            padding: 1rem 3rem;
+            display: block;
+        }
+    }
+    ::selection {
+        background: #a8a0e9;
+    }
+</style>

@@ -1,0 +1,52 @@
+<section class="marquee">
+    <div>
+        <h2>Marquee in CSS -</h2>
+        <h2>Marquee in CSS -</h2>
+        <h2>Marquee in CSS -</h2>
+    </div>
+</section>
+<style>
+    .marquee {
+        height: 50px;
+        overflow: hidden;
+        position: relative;
+        background: #fefefe;
+        color: #333;
+        border: 1px solid #4a4a4a;
+        white-space: nowrap;
+    }
+    .marquee h2 {
+        display: inline-block;
+        margin: 0;
+        line-height: 50px;
+    }
+    .marquee > div {
+        display: inline-block;
+        position: absolute;
+        width: auto;
+        height: 100%;
+        transform: translateX(200%);
+        animation: scroll-left 10s linear infinite;
+    }
+
+    @keyframes scroll-left {
+        0% {
+            transform: translateX(200%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .marquee > div {
+            animation-iteration-count: 1;
+            animation-duration: 0.01;
+            /* instead of animation: none, so an animationend event is 
+     * still available, if previously attached.
+     */
+            width: auto;
+            padding-left: 0;
+        }
+    }
+</style>

@@ -1,0 +1,67 @@
+<section>
+    <pre>SNS Button Simple hover effect - https://codepen.io/ryok_codepen/pen/vLoRVg</pre>
+    <div class="buttons">
+        <div class="button button-fb">
+            <i class="bi bi-facebook"></i>
+        </div>
+        <div class="button button-tw">
+            <i class="bi bi-twitter"></i>
+        </div>
+        <div class="button button-go">
+            <i class="bi bi-google"></i>
+        </div>
+    </div>
+</section>
+<style>
+    .buttons {
+        --basic_button_width: 50px;
+        --basic_button_height: 50px;
+        --hover_button_width: 150px;
+
+        margin-top: 30px;
+        font-family: "Raleway", sans-serif;
+
+        & > .button {
+            margin: 25px auto;
+            transition: all 0.3s;
+            overflow: hidden;
+            cursor: pointer;
+            color: #ffe;
+            width: var(--basic_button_width);
+            height: var(--basic_button_height);
+            border-radius: calc(var(--basic_button_height) / 2);
+            margin-bottom: calc(var(--basic_button_height) / 2);
+            text-align: center;
+            font-size: 130%;
+            line-height: var(--basic_button_height);
+            box-shadow: rgba(16, 25, 36, 0.65098) 3px 3px 8px 0px;
+
+            &:hover {
+                width: var(--hover_button_width);
+            }
+
+            & > i:after {
+                margin-left: 0.5rem;
+            }
+
+            &.button-fb {
+                background-color: blue;
+            }
+            &.button-tw {
+                background-color: orange;
+            }
+            &.button-go {
+                background-color: green;
+            }
+            &.button-fb:hover i:after {
+                content: "share";
+            }
+            &.button-tw:hover i:after {
+                content: "tweet";
+            }
+            &.button-go:hover i:after {
+                content: "+1";
+            }
+        }
+    }
+</style>

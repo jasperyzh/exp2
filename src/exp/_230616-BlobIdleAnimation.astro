@@ -1,0 +1,88 @@
+<pre>
+    <a href="https://codepen.io/mimikos/pen/oWJjYZ">https://codepen.io/mimikos/pen/oWJjYZ</a>
+        </pre>
+<section id="blobs">
+    <figure class="blob_canvas" style="width: 300px; height: 300px">
+        <!-- prettier-ignore -->
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" > <defs> <filter id="goo_default"> <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur> <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 18 -7" result="goo"></feColorMatrix> <feBlend in2="goo" in="SourceGraphic" result="mix" ></feBlend> </filter> <linearGradient id="MyGradient"> <stop offset="5%" stop-color="#40204c"></stop> <stop offset="40%" stop-color="#a3225c"></stop> <stop offset="100%" stop-color="#e24926"></stop> </linearGradient> </defs> <mask id="maska_default"> <g class="blobs" filter="url(#goo_default)"> <circle class="blob" cx="150" cy="80" r="40" transform="rotate(0) translate(0, 0) rotate(0)" fill="#fff"></circle> <circle class="blob" cx="150" cy="200" r="80" transform="rotate(0) translate(0, 0) rotate(0)" fill="#fff"></circle> </g> </mask> <rect x="0" y="0" mask="url(#maska_default)" width="300" height="300" fill="url(#MyGradient)" > </rect> </svg>
+    </figure>
+
+    <figure
+        class="blob_canvas"
+        style="width: 300px; height: 300px; --svg-rotate: 0deg; "
+    >
+        <!-- prettier-ignore -->
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" style="rotate: var(--svg-rotate);" > <defs> <filter id="goo"> <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur> <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 18 -7" result="goo"></feColorMatrix> <feBlend in2="goo" in="SourceGraphic" result="mix" ></feBlend> </filter> </defs> <mask id="maska" transform="rotate(0) translate(0, 0) rotate(0)"> <g class="blobs" filter="url(#goo)"> <circle class="blob" cx="50%" cy="18%" r="30" transform="rotate(0) translate(0, 0) rotate(0)" fill="#fff"></circle> <circle class="blob" cx="50%" cy="50%" r="60" transform="rotate(0) translate(0, 0) rotate(0)" fill="#fff"></circle> </g> </mask> <rect x="0" y="0" mask="url(#maska)" width="300" height="300" fill="#00A19C" > </rect> </svg>
+    </figure>
+    <figure
+        class="blob_canvas"
+        style="width: 300px; height: 300px; --svg-rotate: 0deg; "
+    >
+        <!-- prettier-ignore -->
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" style="rotate: var(--svg-rotate);" > <defs> <filter id="goo2"> <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur> <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 18 -7" result="goo"></feColorMatrix> <feBlend in2="goo" in="SourceGraphic" result="mix" ></feBlend> </filter> </defs> <mask id="maska2" transform="rotate(0) translate(0, 0) rotate(0)"> <g class="blobs" filter="url(#goo2)"> <circle class="blob" cx="50%" cy="25%" r="30" transform="rotate(0) translate(0, 0) rotate(0)" fill="#fff"></circle> <circle class="blob" cx="50%" cy="50%" r="60" transform="rotate(0) translate(0, 0) rotate(0)" fill="#fff"></circle> </g> </mask> <rect x="0" y="0" mask="url(#maska2)" width="300" height="300" fill="#00A19C" > </rect> </svg>
+    </figure>
+    <figure
+        class="blob_canvas"
+        style="width: 300px; height: 300px; --svg-rotate: 0deg; "
+    >
+        <!-- prettier-ignore -->
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" style="rotate: var(--svg-rotate);" > <defs> <filter id="goo3"> <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur> <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 18 -7" result="goo"></feColorMatrix> <feBlend in2="goo" in="SourceGraphic" result="mix" ></feBlend> </filter> </defs> <mask id="maska3" transform="rotate(0) translate(0, 0) rotate(0)"> <g class="blobs" filter="url(#goo3)"> <circle class="blob" cx="50%" cy="31%" r="30" transform="rotate(0) translate(0, 0) rotate(0)" fill="#fff"></circle> <circle class="blob" cx="50%" cy="50%" r="60" transform="rotate(0) translate(0, 0) rotate(0)" fill="#fff"></circle> </g> </mask> <rect x="0" y="0" mask="url(#maska3)" width="300" height="300" fill="#00A19C" > </rect> </svg>
+    </figure>
+</section>
+<style>
+    #blobs {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    figure.blob_canvas {
+        display: inline-block;
+        margin: 0;
+    }
+</style>
+<script
+    is:inline
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"
+></script>
+<script is:inline>
+const radius = 2;
+TweenMax.staggerFromTo(
+    ".blob",
+    4,
+    {
+        cycle: {
+            attr: function (i) {
+                const r = i * 90;
+                return {
+                    transform:
+                        "rotate(" +
+                        r +
+                        ") translate(" +
+                        radius +
+                        ",0.1) rotate(" +
+                        -r +
+                        ")",
+                };
+            },
+        },
+    },
+    {
+        cycle: {
+            attr: function (i) {
+                const r = i * 90 + 360;
+                return {
+                    transform:
+                        "rotate(" +
+                        r +
+                        ") translate(" +
+                        radius +
+                        ",0.1) rotate(" +
+                        -r +
+                        ")",
+                };
+            },
+        },
+        ease: Linear.easeNone,
+        repeat: -1,
+    }
+);
+</script>

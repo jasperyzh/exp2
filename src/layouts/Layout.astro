@@ -1,12 +1,10 @@
 ---
-export interface Props {
-    title?: string;
-    description?: string;
-}
+const title = "EXP | JY";
+const description = "Various Experiments of JY";
 
-const year = new Date().getFullYear();
-
-const { title, description } = Astro.props as Props;
+import path from "path";
+const all_exp = await Astro.glob("../exp/*.astro");
+const all_standard = await Astro.glob("../standard/*.astro");
 ---
 
 <!DOCTYPE html>
@@ -23,39 +21,73 @@ const { title, description } = Astro.props as Props;
 
         <!-- Primary Meta Tags -->
         <title>{title}</title>
-        <meta name="title" content={title} />
         <meta name="description" content={description} />
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5"> -->
+        <link
+            rel="stylesheet"
+            href="/bootstrap-icons-1.10.5/font/bootstrap-icons.css"
+        />
     </head>
 
     <body>
-        <header id="site-header" aria-label="site-header">
-            <h2>exp</h2>
-            <a href="/">exp</a>
-            <a href="/standard">standard</a>
-
-            <!-- <nav id="primary-nav" aria-label="primary-nav">
-                <Link href="/">Home</Link>
-                <Link href="/blog">Blog</Link>
-                <Link href="/portfolio">Portfolio</Link>
-            </nav> -->
-        </header>
-
-        <main id="site-main" aria-label="site-main">
-            <slot />
-        </main>
-        <footer
-            id="site-footer"
-            aria-label="site-footer"
-            class="tw-flex tw-flex-col tw-items-center tw-text-center tw-py-4"
-        >
-            <p class="small muted">
-                Coding with intent, in stillness and mindfulness, learning to
-                create.
-            </p>
-
-            <p class="small muted">
-                &copy; jy_exp {year}
-            </p>
-        </footer>
+        <pre class="hint">Press `</pre>
+        <section id="quick_link" class="p-4" style="display: none">
+            <h1>Welcome to my playground!</h1>
+            <div class="flex gap-8">
+                <section>
+                    <h2>/exp</h2>
+                    {
+                        all_exp.map((item) => (
+                            <li>{path.parse(item.file).name}</li>
+                        ))
+                    }
+                </section>
+                <section>
+                    <h2>/standard</h2>
+                    {
+                        all_standard.map((item) => (
+                            <li>{path.parse(item.file).name}</li>
+                        ))
+                    }
+                </section>
+            </div>
+            <hr />
+        </section>
+        <slot />
     </body>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        h1,
+        h2,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .hint {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: .5rem 1rem;
+            background: #ddd;
+            color: #aaa;
+            display: inline-block;
+            opacity: 0.5;
+        }
+    </style>
+    <script is:inline>
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "`") {
+                var element = document.getElementById("quick_link");
+                element.style.display =
+                    element.style.display === "none" ? "block" : "none";
+            }
+        });
+    </script>
 </html>

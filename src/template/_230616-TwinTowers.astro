@@ -1,0 +1,251 @@
+---
+import path from "path";
+
+import { Debug } from "astro/components";
+
+const all_images = await Astro.glob("../assets/twintowers/*.jpg");
+
+import about from "../assets/twintowers/about.jpg";
+// import cta from "../assets/twintowers/cta.jpg";
+import ctatext from "../assets/twintowers/cta-text.svg";
+import ctabg from "../assets/twintowers/cta-bg.jpg";
+import expcards from "../assets/twintowers/exp-cards.jpg";
+import exptext from "../assets/twintowers/exp-text.svg";
+import header from "../assets/twintowers/header.svg";
+import insta from "../assets/twintowers/insta.jpg";
+import mastheadbg from "../assets/twintowers/masthead-bg.jpg";
+import mastheadtext from "../assets/twintowers/masthead-text.svg";
+import storybg from "../assets/twintowers/story-bg.jpg";
+import storytext from "../assets/twintowers/story-text.svg";
+import testimonial1 from "../assets/twintowers/testimonial-1.png";
+import testimonial2 from "../assets/twintowers/testimonial-2.png";
+import ticket from "../assets/twintowers/ticket.svg";
+
+import instatitle from "../assets/twintowers/insta-title.svg";
+import instagallery from "../assets/twintowers/insta-gallery.png";
+
+import footer from "../assets/twintowers/footer.jpg";
+import footertext from "../assets/twintowers/footer-text.svg";
+
+import { Image } from "astro:assets";
+---
+
+<script
+    is:inline
+    src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"
+></script>
+<!-- <Debug {mastheadtext} /> --><!-- 
+<pre>
+    {
+        all_images.map((item) => (
+            <li>{item.default.replace("/src/assets/twintowers/", "").replace(".jpg", "")}</li>
+        ))
+    }
+</pre> -->
+<img src={header.src} alt class="absolute top-0 z-10" />
+<div id="masthead" class="relative min-h-screen flex align-items justify-end">
+    <img
+        src={mastheadtext.src}
+        alt
+        class="me-12 rellax"
+        data-rellax-speed="-3"
+        data-rellax-percentage="0.5"
+    />
+    <Image
+        src={mastheadbg}
+        alt
+        style="position: fixed"
+        class="absolute top-0 -z-10 object-cover rellax"
+        data-rellax-speed="6"
+    />
+</div>
+
+<section class="py-12 flex justify-center bg-white">
+    <Image src={about} alt />
+</section>
+
+<!-- <section class="py-20">
+    <div class="container mx-auto">
+        <img src={exptext.src} alt />
+    </div>
+
+    <div class="ms-8 my-12">
+        <div class="slider-container">
+            <div class="slider-content">
+                <Image
+                    src={expcards}
+                    alt
+                    class="slider-image"
+                />
+            </div>
+        </div>
+    </div>
+</section> -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto">
+        <img src={exptext.src} alt />
+    </div>
+
+    <div class="my-12">
+        <div class="slider-container overflow-x-auto">
+            <div class="slider-content whitespace-nowrap  p-4 ps-4">
+                <img src={expcards.src} alt class="slider-image inline-block" style="max-width: initial" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 
+<Image src={parallaxbg1} alt />
+ -->
+
+<section class="bg-gradient">
+    <div id="story" class="relative">
+        <Image src={storybg} alt />
+        <div class="absolute" style="inset: 25% 0 0 0">
+            <img
+                src={storytext.src}
+                alt
+                class="block m-auto rellax"
+                data-rellax-speed="-3"
+                data-rellax-percentage="0.5"
+            />
+
+            <div class="flex justify-around mt-64">
+                <Image
+                    src={testimonial1}
+                    alt=""
+                    class="rellax"
+                    data-rellax-speed="-4"
+                    data-rellax-percentage="0.5"
+                />
+                <Image
+                    src={testimonial2}
+                    alt=""
+                    class="rellax"
+                    data-rellax-speed="-5"
+                    data-rellax-percentage="0.5"
+                />
+            </div>
+        </div>
+    </div>
+    <img src={storytext} alt />
+
+    <img src={ticket.src} alt class="mt-96 py-12 mx-auto block" />
+
+    <div class="py-20">
+        <img src={instatitle.src} alt class="py-4 mx-auto block" />
+        <Image src={instagallery} alt class="py-4 mx-auto block" />
+    </div>
+</section>
+
+<section
+    data-rellax-speed="1"
+    data-rellax-percentage="0.5"
+    id="cta"
+    style={`min-height: max-content; background-image: url('${ctabg.src}'); background-repeat: no-repeat; background-size: cover; background-attachment:fixed; background-position: center`}
+>
+    <div class="flex justify-center" style="min-height: 70vh">
+        <img
+            src={ctatext.src}
+            alt
+            class="rellax"
+            data-rellax-speed="-2"
+            data-rellax-percentage="1"
+        />
+    </div>
+    <pre>
+white frame to animate, frame up the footer section;
+reposition the towers on footer (dont overlay)
+</pre>
+
+    <div class="w-100">
+        <div class="outer" data-rellax-speed="-4" data-rellax-percentage="0.5">
+            <div
+                class="inner rounded-2xl h-100"
+                style="outline: 1rem solid white; min-height: 80vh"
+            >
+                <img
+                    src={footertext.src}
+                    alt
+                    class="w-100 block mx-auto pt-12"
+                />
+            </div>
+        </div>
+        <footer class="bg-white pb-4">
+            <p class="text-center m-0">
+                Copyright © 2023 Petrosains. All Rights Reserved.
+            </p>
+        </footer>
+    </div>
+</section>
+
+<style>
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    .bg-gradient {
+        background: linear-gradient(180deg, #005272 0%, #043648 100%);
+    }
+    /*  #masthead {
+        background-image: url("../assets/twintowers/masthead-bg.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    } */
+    .outer {
+        border: 3rem solid #fff;
+    }
+
+    pre {
+        color: magenta;
+        font-size: 1.5rem;
+    }
+
+    /* slider */
+    .slider-container {
+        width: 100%;
+    }
+
+    .slider-content {
+        display: inline-flex;
+    }
+
+    .slider-image {
+        cursor: grab;
+    }
+</style>
+<script is:inline>
+// Accepts any class name
+var rellax = new Rellax(".rellax");
+var rellax2 = new Rellax("#cta");
+
+// slider
+const slider = document.querySelector(".slider-content");
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener("mousedown", (e) => {
+    isDown = true;
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener("mouseleave", () => {
+    isDown = false;
+});
+
+slider.addEventListener("mouseup", () => {
+    isDown = false;
+});
+
+slider.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 3; // Adjust the sliding speed
+    slider.scrollLeft = scrollLeft - walk;
+});
+</script>
